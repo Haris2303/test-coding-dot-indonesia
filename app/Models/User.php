@@ -25,6 +25,11 @@ class User extends Model implements Authenticatable
         'password',
     ];
 
+    public function categories(): HasMany
+    {
+        return $this->hasMany(Category::class, 'user_id', 'id');
+    }
+
     public function books(): HasMany
     {
         return $this->hasMany(Book::class, 'user_id', 'id');

@@ -18,4 +18,9 @@ class Book extends Model
     {
         return $this->belongsTo(Book::class, 'user_id', 'id');
     }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Book::class, 'user_id', 'id');
+    }
 }

@@ -4,6 +4,6 @@ USE test_dot_indonesia;
 
 SHOW TABLES;
 
-DESC books;
+DESC categories;
 
 SELECT * FROM users;

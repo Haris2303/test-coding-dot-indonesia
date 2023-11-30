@@ -27,4 +27,10 @@ Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function
     Route::get('/users/current', [\App\Http\Controllers\UserController::class, 'get']);
     Route::patch('/users/current', [\App\Http\Controllers\UserController::class, 'update']);
     Route::delete('/users/logout', [\App\Http\Controllers\UserController::class, 'logout']);
+
+    // Route API Category
+    Route::post('/categories', [\App\Http\Controllers\CategoryController::class, 'create']);
+    Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'getAll']);
+    Route::put('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'update']);
+    Route::get('/category/{id}', [\App\Http\Controllers\CategoryController::class, 'get']);
 });

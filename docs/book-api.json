@@ -1,0 +1,366 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "Book API",
+        "description": "Book API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000/api"
+        }
+    ],
+    "paths": {
+        "/books": {
+            "post": {
+                "description": "Create new book",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Create new book",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "trailer": {
+                                        "type": "string"
+                                    },
+                                    "publication_year": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "number"
+                                    },
+                                    "author": {
+                                        "type": "string"
+                                    },
+                                    "publisher": {
+                                        "type": "string"
+                                    },
+                                    "shell_code": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success create book",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "trailer": {
+                                                    "type": "string"
+                                                },
+                                                "publication_year": {
+                                                    "type": "string"
+                                                },
+                                                "quantity": {
+                                                    "type": "number"
+                                                },
+                                                "author": {
+                                                    "type": "string"
+                                                },
+                                                "publisher": {
+                                                    "type": "string"
+                                                },
+                                                "shell_code": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Search Book",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "title",
+                        "in": "query"
+                    },
+                    {
+                        "name": "publication_year",
+                        "in": "query"
+                    },
+                    {
+                        "name": "author",
+                        "in": "query"
+                    },
+                    {
+                        "name": "publisher",
+                        "in": "query"
+                    },
+                    {
+                        "name": "shell_code",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success search book",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "trailer": {
+                                                        "type": "string"
+                                                    },
+                                                    "publication_year": {
+                                                        "type": "string"
+                                                    },
+                                                    "quantity": {
+                                                        "type": "number"
+                                                    },
+                                                    "author": {
+                                                        "type": "string"
+                                                    },
+                                                    "publisher": {
+                                                        "type": "string"
+                                                    },
+                                                    "shell_code": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        },
+                                        "meta": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/books/{id}": {
+            "put": {
+                "description": "Update book",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "description": "Change book",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "trailer": {
+                                        "type": "string"
+                                    },
+                                    "publication_year": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "number"
+                                    },
+                                    "author": {
+                                        "type": "string"
+                                    },
+                                    "publisher": {
+                                        "type": "string"
+                                    },
+                                    "shell_code": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success change book",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "trailer": {
+                                                        "type": "string"
+                                                    },
+                                                    "publication_year": {
+                                                        "type": "string"
+                                                    },
+                                                    "quantity": {
+                                                        "type": "number"
+                                                    },
+                                                    "author": {
+                                                        "type": "string"
+                                                    },
+                                                    "publisher": {
+                                                        "type": "string"
+                                                    },
+                                                    "shell_code": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "description": "Get book",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success get book",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "title": {
+                                                        "type": "string"
+                                                    },
+                                                    "trailer": {
+                                                        "type": "string"
+                                                    },
+                                                    "publication_year": {
+                                                        "type": "string"
+                                                    },
+                                                    "quantity": {
+                                                        "type": "number"
+                                                    },
+                                                    "author": {
+                                                        "type": "string"
+                                                    },
+                                                    "publisher": {
+                                                        "type": "string"
+                                                    },
+                                                    "shell_code": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "Remove book",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success remove book",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "boolean"
+                                        },
+                                        "errors": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

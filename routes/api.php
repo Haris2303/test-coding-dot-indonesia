@@ -19,3 +19,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/users', [\App\Http\Controllers\UserController::class, 'register']);
+Route::post('/users/login', [\App\Http\Controllers\UserController::class, 'login']);
+
+// Group middleware authentication
+Route::middleware(\App\Http\Middleware\ApiAuthMiddleware::class)->group(function () {
+    // Route API users
+    Route::get('/users/current', [\App\Http\Controllers\UserController::class, 'get']);
+    Route::patch('/users/current', [\App\Http\Controllers\UserController::class, 'update']);
+    Route::delete('/users/logout', [\App\Http\Controllers\UserController::class, 'logout']);
+});

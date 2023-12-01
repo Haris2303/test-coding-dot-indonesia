@@ -14,6 +14,16 @@ class Book extends Model
     public $incrementing = true;
     public $timestamps = true;
 
+    protected $fillable = [
+        'title',
+        'trailer',
+        'publication_year',
+        'quantity',
+        'author',
+        'publisher',
+        'shell_code'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(Book::class, 'user_id', 'id');

@@ -27,8 +27,8 @@ class CategoryController extends Controller
 
     public function getAll(): CategoryCollection
     {
-        $category = Category::all(['name', 'description']);
-        return new CategoryCollection($category);
+        $categories = Category::all(['name', 'description']);
+        return new CategoryCollection($categories);
     }
 
     public function update(int $id, CategoryUpdateRequest $request): CategoryResource

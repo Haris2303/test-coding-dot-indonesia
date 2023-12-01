@@ -137,7 +137,7 @@
                     }
                 },
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "Success change category",
                         "content": {
                             "application/json": {

@@ -204,7 +204,13 @@ class BookControllerTest extends TestCase
         $this->put("/api/category/$book->category_id/book/$book->id", headers: [
             'Authorization' => 'otong123'
         ], data: [
-            'title' => 'Saya Adalah Pahlawan'
+            'title' => 'Saya Adalah Pahlawan',
+            'trailer' => 'Trailer Buku',
+            'publication_year' => '2023',
+            'quantity' => 3,
+            'author' => 'Otong',
+            'publisher' => 'Ucup',
+            'shell_code' => 'RK23'
         ])->assertStatus(200)->assertJson([
             'data' => [
                 'title' => 'Saya Adalah Pahlawan'

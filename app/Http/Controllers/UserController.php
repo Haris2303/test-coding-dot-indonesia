@@ -12,11 +12,16 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Request;
 
 class UserController extends Controller
 {
 
+    /**
+     * Fungsi untuk mendaftarkan pengguna baru.
+     *
+     * @param UserRegisterRequest $request Request validasi untuk data pendaftaran pengguna.
+     * @return JsonResponse Respons JSON dengan status 201 (Created).
+     */
     public function register(UserRegisterRequest $request): JsonResponse
     {
         $data = $request->validated();
@@ -41,6 +46,12 @@ class UserController extends Controller
         return (new UserResource($user))->response()->setStatusCode(201);
     }
 
+    /**
+     * Fungsi untuk melakukan login pengguna.
+     *
+     * @param UserLoginRequest $request Request validasi untuk data login pengguna.
+     * @return UserResource Sumber daya pengguna setelah berhasil login.
+     */
     public function login(UserLoginRequest $request): UserResource
     {
         $data = $request->validated();
@@ -62,13 +73,24 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function get(Request $request): UserResource
+    /**
+     * Fungsi untuk mendapatkan informasi pengguna terautentikasi.
+     *
+     * @return UserResource Sumber daya pengguna terautentikasi.
+     */
+    public function get(): UserResource
     {
         $user = Auth::user();
         Log::info($user);
         return new UserResource($user);
     }
 
+    /**
+     * Fungsi untuk memperbarui informasi pengguna terautentikasi.
+     *
+     * @param UserUpdateRequest $request Request validasi untuk data pembaruan pengguna.
+     * @return UserResource Sumber daya pengguna setelah berhasil diperbarui.
+     */
     public function update(UserUpdateRequest $request): UserResource
     {
         $data = $request->validated();
@@ -89,6 +111,11 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
+    /**
+     * Fungsi untuk melakukan logout pengguna.
+     *
+     * @return JsonResponse Respons JSON dengan status 200 (OK) setelah berhasil logout.
+     */
     public function logout()
     {
         $user = Auth::user();

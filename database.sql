@@ -6,4 +6,4 @@ SHOW TABLES;
 
 DESC categories;
 
-SELECT * FROM users;
+SELECT * FROM categories;

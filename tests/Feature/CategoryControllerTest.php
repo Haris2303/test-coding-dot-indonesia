@@ -50,11 +50,14 @@ class CategoryControllerTest extends TestCase
     {
         $this->seed([UserSeeder::class, CategorySeeder::class]);
 
+        $category = Category::where('name', 'Horror');
+
         $this->get('/api/categories', [
             'Authorization' => 'otong123'
         ])->assertStatus(200)->assertJson([
             'data' => [
                 [
+                    'id' => $category->id,
                     'name' => 'Horror'
                 ],
                 [

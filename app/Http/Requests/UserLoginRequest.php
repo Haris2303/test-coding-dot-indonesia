@@ -29,6 +29,7 @@ class UserLoginRequest extends FormRequest
         ];
     }
 
+    // Berikan response 400 ketika validasi gagal
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response([

@@ -77,7 +77,8 @@ class BookControllerTest extends TestCase
         ])->assertStatus(200)->assertJson([
             'data' => [
                 [
-                    'title' => 'Kau Pahlawanku'
+                    'title' => 'Kau Pahlawanku',
+                    'publication_year' => '2023'
                 ]
             ]
         ]);

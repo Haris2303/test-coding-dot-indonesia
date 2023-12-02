@@ -6,4 +6,4 @@ SHOW TABLES;
 
 DESC categories;
 
-SELECT * FROM categories;
+SELECT * FROM books;
